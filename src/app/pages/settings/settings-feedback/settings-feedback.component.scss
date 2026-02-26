@@ -1,0 +1,174 @@
+/* Match the same visual system as About/Home:
+   - light: soft gold/brown tint + clean card
+   - dark: deep background + subtle radial glows + glass card
+*/
+.settings-feedback-page {
+  /* Make ion-content background fill the full screen */
+  --background: radial-gradient(1200px 600px at 50% 0%, rgba(247, 223, 85, 0.16), transparent 60%),
+    radial-gradient(900px 500px at 100% 100%, rgba(198, 145, 81, 0.16), transparent 55%),
+    #ffffff;
+
+  @media (prefers-color-scheme: dark) {
+    --background: radial-gradient(1200px 600px at 50% 0%, rgba(247, 223, 85, 0.14), transparent 60%),
+      radial-gradient(900px 500px at 100% 100%, rgba(198, 145, 81, 0.14), transparent 55%),
+      #0b0b12;
+  }
+
+  .page-container {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 20px 16px 28px;
+  }
+
+  /* Card (form container) - modern */
+  .feedback-card {
+    border-radius: 18px;
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(247, 223, 85, 0.18);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.08);
+
+    @media (prefers-color-scheme: dark) {
+      background: rgba(20, 20, 30, 0.65);
+      border: 1px solid rgba(247, 223, 85, 0.14);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(12px);
+    }
+
+    ion-card-title {
+      color: var(--ion-text-color, #111);
+      font-weight: 800;
+      letter-spacing: 0.2px;
+
+      @media (prefers-color-scheme: dark) {
+        color: rgba(255, 255, 255, 0.92);
+      }
+    }
+  }
+
+  /* Subtitle text */
+  .subtitle {
+    margin: 0 0 14px;
+    line-height: 1.6;
+    color: var(--ion-color-medium);
+
+    @media (prefers-color-scheme: dark) {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .email {
+      color: var(--ion-color-primary, #a855f7);
+      font-weight: 800;
+    }
+  }
+
+  /* Make ion-item look like a modern input box */
+  .textarea-item {
+    --border-radius: 14px;
+    --padding-start: 12px;
+    --inner-padding-end: 12px;
+
+    --background: rgba(255, 255, 255, 0.85);
+    --border-color: rgba(168, 85, 247, 0.18);
+
+    border-radius: 14px;
+    margin-top: 10px;
+
+    @media (prefers-color-scheme: dark) {
+      --background: rgba(255, 255, 255, 0.06);
+      --border-color: rgba(247, 223, 85, 0.14);
+    }
+
+    ion-label {
+      font-weight: 700;
+      color: rgba(17, 17, 17, 0.82);
+
+      @media (prefers-color-scheme: dark) {
+        color: rgba(255, 255, 255, 0.86);
+      }
+    }
+
+    ion-textarea {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 1.5;
+
+      --padding-top: 10px;
+      --padding-bottom: 10px;
+
+      color: rgba(17, 17, 17, 0.92);
+
+      @media (prefers-color-scheme: dark) {
+        color: rgba(255, 255, 255, 0.88);
+      }
+    }
+
+    .counter {
+      font-size: 12px;
+      color: var(--ion-color-medium);
+      padding-top: 22px;
+      white-space: nowrap;
+
+      @media (prefers-color-scheme: dark) {
+        color: rgba(255, 255, 255, 0.6);
+      }
+    }
+  }
+
+  /* Buttons */
+  .actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+
+    .btn-submit {
+      --background: linear-gradient(135deg, #a855f7, #d946ef);
+      --box-shadow: 0 12px 26px rgba(168, 85, 247, 0.28);
+      --border-radius: 12px;
+      font-weight: 800;
+    }
+
+    .btn-clear {
+      --border-color: rgba(168, 85, 247, 0.35);
+      --color: var(--ion-color-primary, #a855f7);
+      --border-radius: 12px;
+      font-weight: 800;
+
+      @media (prefers-color-scheme: dark) {
+        --border-color: rgba(247, 223, 85, 0.25);
+      }
+    }
+  }
+
+  /* Contact link */
+  .quick-contact {
+    margin-top: 14px;
+
+    .mailto-link {
+      display: inline-block;
+      text-decoration: none;
+      color: var(--ion-color-primary, #a855f7);
+      font-weight: 800;
+      border-bottom: 1px dashed rgba(168, 85, 247, 0.55);
+      padding-bottom: 2px;
+    }
+  }
+
+  /* Mobile spacing */
+  @media (max-width: 480px) {
+    .page-container {
+      padding: 14px 12px 22px;
+    }
+
+    .actions {
+      justify-content: stretch;
+
+      ion-button {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<ng-container *transloco="let t; read: 'settings'">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>{{ t('title') }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true" class="settings-menu-page">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">{{ t('title') }}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <div class="page-wrap">
+      @for (group of groups; track group.name) {
+        <!-- Centered stylish group title -->
+        <div class="group-title">
+          <span class="line"></span>
+          <h2 class="text">{{ t(group.name + '.title') }}</h2>
+          <span class="line"></span>
+        </div>
+
+        <!-- 2 in a row grid - NO overflow -->
+        <ion-grid class="cards-grid">
+          <ion-row>
+            @for (page of group.pages; track page.path) {
+              <ion-col class="tile-col">
+                <ion-nav-link router-direction="forward" [component]="page.component">
+                  <button class="settings-tile" type="button">
+                    <div class="tile-icon">
+                      <ion-icon [name]="page.icon"></ion-icon>
+                    </div>
+
+                    <div class="tile-text">
+                      <div class="title">{{ t(group.name + '.' + page.path + '.title') }}</div>
+                      <div class="subtitle">Open</div>
+                    </div>
+
+                    <div class="chev">
+                      <ion-icon name="chevron-forward-outline"></ion-icon>
+                    </div>
+                  </button>
+                </ion-nav-link>
+              </ion-col>
+            }
+          </ion-row>
+        </ion-grid>
+      }
+    </div>
+  </ion-content>
+</ng-container>

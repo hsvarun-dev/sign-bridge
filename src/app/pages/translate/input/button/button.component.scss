@@ -1,0 +1,50 @@
+// Hide text input completely
+.input-button-no-text {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  min-height: 52px;
+  width: 100%;
+  justify-content: center;
+  
+  // Perfect sizing matching footer
+  ion-icon {
+    font-size: 24px;
+    width: 28px;
+    height: 28px;
+  }
+  
+  // Smooth hover matching footer
+  &:hover {
+    --background: rgba(236, 72, 153, 0.15);
+    transform: translateY(-1px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  // Selected state matching footer
+  &.selected {
+    --background: rgba(236, 72, 153, 0.25);
+    --border-color: #ec4899;
+    ion-icon {
+      color: #ec4899;
+      filter: drop-shadow(0 0 8px #ec4899);
+    }
+  }
+}
+
+// Language selector cleanup
+app-language-selectors {
+  .menu-language-button {
+    --padding-start: 12px;
+    --padding-end: 12px;
+    --height: 48px;
+    
+    .wrap-text {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+}

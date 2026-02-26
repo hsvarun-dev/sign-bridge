@@ -1,0 +1,9 @@
+<ion-button 
+  (click)="setInputMode()" 
+  [class.selected]="(inputMode$ | async) === mode" 
+  color="primary" 
+  fill="outline"
+  class="input-button-no-text">
+  <ion-icon [name]="icon" slot="start" />
+  <!-- Text removed - icon only -->
+</ion-button>

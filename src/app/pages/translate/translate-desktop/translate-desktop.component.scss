@@ -1,0 +1,276 @@
+@use '../../../../theme/breakpoints' as breakpoints;
+
+/* ===== COLORS ===== */
+$primary-color: #6366f1;
+$secondary-color: #8b5cf6;
+$accent-color: #ec4899;
+$dark-bg: #0f0f23;
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+  }
+}
+
+/* ===== NAVBAR ===== */
+ion-header {
+  --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  animation: slideInDown 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  ion-toolbar {
+    --background: linear-gradient(135deg, #1a1a2e 0%, #0f1419 100%);
+    --color: #ffffff;
+    --padding-top: 12px;
+    --padding-bottom: 12px;
+    --padding-start: 20px;
+    --padding-end: 20px;
+    min-height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+
+    ion-title {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      flex: 1;
+      text-align: left;
+      animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    ion-buttons {
+      margin: 0;
+
+      ion-button {
+        --background: linear-gradient(135deg, $secondary-color 0%, $primary-color 100%);
+        --color: #ffffff;
+        --padding-start: 24px;
+        --padding-end: 24px;
+        --border-radius: 24px;
+        --box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        height: 42px;
+
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+
+        animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both,
+          glow 3s ease-in-out infinite 1s;
+
+        &:hover {
+          --box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+          transform: translateY(-2px);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
+
+/* ===== PAGE BACKGROUND ===== */
+ion-content {
+  --background: linear-gradient(135deg, $dark-bg 0%, #1a1a2e 50%, #0f1419 100%);
+  background-size: 400% 400%;
+
+  /* IMPORTANT: prevents content being hidden behind the bottom tab bar */
+  --padding-bottom: calc(90px + var(--ion-safe-area-bottom, 0px));
+}
+
+/* ===== MAIN CONTAINER ===== */
+.container {
+  animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  @media #{breakpoints.$breakpoint-gt-md} {
+    padding: 60px 48px 0;
+  }
+
+  @media #{breakpoints.$breakpoint-gt-sm} {
+    padding: 40px 32px 0;
+  }
+
+  @media #{breakpoints.$breakpoint-lt-sm} {
+    padding: 24px 16px 0;
+  }
+}
+
+/* ===== TRANSLATION CARD ===== */
+#translation-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+
+  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.25);
+  animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  @media (prefers-color-scheme: dark) {
+    background: rgba(26, 26, 26, 0.95);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    box-shadow: 0 20px 60px rgba(99, 102, 241, 0.35);
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 80px rgba(99, 102, 241, 0.35);
+  }
+
+  app-language-selectors {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+    @media (prefers-color-scheme: dark) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  #content {
+    min-height: 550px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%);
+    animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
+
+    @media (prefers-color-scheme: dark) {
+      background: linear-gradient(180deg, rgba(26, 26, 26, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%);
+    }
+  }
+}
+
+/* ===== FEEDBACK SECTION ===== */
+app-send-feedback {
+  margin-top: 32px;
+  animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s both;
+
+  ::ng-deep {
+    h3 {
+      font-size: 20px;
+      font-weight: 800;
+      background: linear-gradient(135deg, $accent-color 0%, $primary-color 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: #666;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto 20px;
+
+      @media (prefers-color-scheme: dark) {
+        color: #999;
+      }
+    }
+
+    ion-button {
+      --background: linear-gradient(135deg, $accent-color 0%, $secondary-color 100%);
+      --color: #ffffff;
+      --padding-start: 32px;
+      --padding-end: 32px;
+      --border-radius: 24px;
+      --box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+
+      font-weight: 700;
+      height: 48px;
+      margin: 0 auto;
+      display: block;
+
+      &:hover {
+        --box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media #{breakpoints.$breakpoint-lt-sm} {
+  ion-header ion-toolbar {
+    --padding-start: 16px;
+    --padding-end: 16px;
+    min-height: 56px;
+
+    ion-title {
+      font-size: 22px;
+    }
+
+    ion-buttons ion-button {
+      --padding-start: 16px;
+      --padding-end: 16px;
+      font-size: 12px;
+      height: 36px;
+    }
+  }
+}
+
+@media #{breakpoints.$breakpoint-gt-sm} {
+  ion-header ion-toolbar {
+    min-height: 60px;
+
+    ion-title {
+      font-size: 26px;
+    }
+
+    ion-buttons ion-button {
+      font-size: 13px;
+      height: 40px;
+    }
+  }
+}
+
+/* ===== DARK MODE ===== */
+@media (prefers-color-scheme: dark) {
+  ion-header ion-toolbar {
+    --background: linear-gradient(135deg, #0a0a15 0%, #1a1a2e 100%);
+    border-bottom-color: rgba(99, 102, 241, 0.15);
+  }
+
+  ion-content {
+    --background: linear-gradient(135deg, #000000 0%, #0a0a15 50%, #1a1a2e 100%);
+  }
+}

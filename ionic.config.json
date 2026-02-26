@@ -1,0 +1,7 @@
+{
+  "name": "@Sign/Bridge",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

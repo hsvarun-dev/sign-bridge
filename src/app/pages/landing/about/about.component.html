@@ -1,0 +1,67 @@
+<section class="about-wrapper">
+  <div class="content">
+    <!-- Mission -->
+    <div class="section animate-on-scroll">
+      <div class="section-header">
+        <div class="header-line"></div>
+        <h2>Our Mission</h2>
+        <div class="header-line"></div>
+      </div>
+
+      <p class="section-text">
+        Our mission is to empower individuals through technology by bridging the
+        communication gap between hearing and non-hearing communities.
+      </p>
+    </div>
+
+    <!-- Team -->
+    <div class="section animate-on-scroll">
+      <div class="section-header">
+        <div class="header-line"></div>
+        <h2>Our Team</h2>
+        <div class="header-line"></div>
+      </div>
+
+      <div class="team-grid">
+        <div
+          class="team-card"
+          *ngFor="let member of teamMembers; let i = index"
+          [style]="'--card-delay: ' + i * 80 + 'ms'"
+        >
+          <div class="card-inner">
+            <!-- Front: ONLY name + role -->
+            <div class="card-front">
+              <h3>{{ member.name }}</h3>
+              <p>{{ member.role }}</p>
+            </div>
+
+            <!-- Back: image (if available), else blank -->
+            <div class="card-back" [class.is-blank]="!member.image">
+              <ng-container *ngIf="member.image; else blankBack">
+                <img [src]="member.image" [alt]="member.name" />
+              </ng-container>
+
+              <ng-template #blankBack>
+                <div class="blank-holder"></div>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vision -->
+    <div class="section animate-on-scroll">
+      <div class="section-header">
+        <div class="header-line"></div>
+        <h2>Vision</h2>
+        <div class="header-line"></div>
+      </div>
+
+      <p class="section-text">
+        The vision of Sign Bridge is to create a future where communication is
+        barrier-free, inclusive, and powered by intelligent technology.
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,124 @@
+@use '../../../../theme/breakpoints' as breakpoints;
+
+:host {
+  display: flex;
+  overflow: hidden;
+}
+
+mat-tab-group {
+  display: inline-block;
+}
+
+/* Smooth animation for box */
+@keyframes slide-box {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Make language expansion menu show the correct icon */
+ion-button.menu-icon-button {
+  height: 100%;
+  margin: 0;
+  transition: all 220ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  ion-icon {
+    transition: transform 280ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  &[aria-expanded='true'] ion-icon {
+    transform: rotateZ(-180deg);
+  }
+}
+
+ion-button.menu-language-button {
+  display: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  transition: all 200ms ease-out;
+}
+
+@media #{breakpoints.$breakpoint-lt-md} {
+  ion-button.menu-icon-button,
+  mat-tab-group {
+    display: none;
+  }
+  ion-button.menu-language-button {
+    display: block;
+  }
+}
+
+/* Bold white text, centered, vibrant background */
+:host ::ng-deep div[role='tab'] {
+  font-weight: 500;
+  font-size: 14px;
+  padding: 10px 20px;
+  position: relative;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: rgba(255, 255, 255, 0.65);
+  margin-right: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  white-space: nowrap;
+
+  /* Remove the ::after gradient line */
+  &::after {
+    display: none;
+  }
+
+  /* Hover state */
+  &:hover {
+    color: rgba(255, 255, 255, 0.95);
+    background: rgba(168, 85, 247, 0.15);
+  }
+
+  /* Selected state - PURPLE BOX with BOLD WHITE TEXT */
+  &[aria-selected='true'] {
+    color: #ffffff;
+    font-weight: 700;
+    background: linear-gradient(135deg, #b969e1 0%, #fdfdfd 100%);
+    box-shadow: 0 6px 30px rgba(168, 85, 247, 0.5);
+    animation: slide-box 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+/* Update menu styling */
+::ng-deep .language-selector-menu {
+  max-height: calc(100vh - 64px - 68px - 48px) !important;
+  background: rgba(20, 20, 30, 0.95) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+::ng-deep .language-selector-menu .mat-mdc-menu-item {
+  transition: all 150ms ease;
+  color: rgba(255, 255, 255, 0.8);
+
+  &:hover {
+    background: rgba(168, 85, 247, 0.15) !important;
+    color: #ffffff;
+  }
+
+  &[aria-current='true'],
+  &.mat-mdc-menu-item-highlighted {
+    background: rgba(168, 85, 247, 0.25) !important;
+    color: #ffffff;
+    font-weight: 600;
+  }
+}
+
+.wrap-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

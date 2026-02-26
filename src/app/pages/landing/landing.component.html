@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <!-- App Logo / Title -->
+    <ion-title>
+      Sign Bridge
+    </ion-title>
+
+    <!-- Right-side buttons -->
+    <ion-buttons slot="end">
+
+      <!-- Translate Now -->
+      <ion-button
+        routerLink="/"
+        color="primary"
+        shape="round"
+        fill="solid">
+        {{ 'landing.try' | transloco }}
+        <ion-icon slot="end" name="arrow-forward" />
+      </ion-button>
+
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" id="main-content">
+  <router-outlet />
+</ion-content>

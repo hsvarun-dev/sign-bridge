@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button
+        routerLink="/about"
+        queryParamsHandling="preserve"
+        color="primary"
+        shape="round"
+        fill="solid">
+        {{ 'landing.about.title' | transloco }}
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Sign Bridge
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <!-- COMPLETE INPUT BLOCK REMOVED -->
+    
+    <app-drop-pose-file>
+      <div id="translation-card">
+        <app-language-selectors />
+
+        <div id="content">
+          @if (spokenToSigned) {
+            <app-spoken-to-signed />
+          } @else {
+            <app-signed-to-spoken />
+          }
+        </div>
+      </div>
+    </app-drop-pose-file>
+
+    <app-send-feedback />
+  </div>
+</ion-content>

@@ -1,0 +1,77 @@
+<ng-container *transloco="let t; read: 'settings.support.feedback'">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button [text]="'settings.title' | transloco"></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{ t('title') }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true" class="settings-feedback-page">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">{{ t('title') }}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <div class="page-container">
+      <ion-card class="feedback-card">
+        <ion-card-header>
+          <ion-card-title>Send Feedback</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <p class="subtitle">
+            Share bugs, suggestions, or improvements. When you submit, your email app will open and send it to
+            <span class="email">{{ toEmail }}</span>.
+          </p>
+
+          <ion-item class="textarea-item" lines="full">
+            <ion-label position="stacked">Your feedback</ion-label>
+
+            <ion-textarea
+              [(ngModel)]="feedbackText"
+              [maxlength]="maxLen"
+              autoGrow="true"
+              placeholder="Type your feedback here..."
+            ></ion-textarea>
+
+            <ion-note slot="end" class="counter">
+              {{ remaining }} left
+            </ion-note>
+          </ion-item>
+
+          <div class="actions">
+            <ion-button
+              class="btn-clear"
+              fill="outline"
+              type="button"
+              (click)="clear()"
+              [disabled]="!feedbackText?.length"
+            >
+              <ion-icon name="trash-outline" slot="start"></ion-icon>
+              Clear
+            </ion-button>
+
+            <ion-button
+              class="btn-submit"
+              type="button"
+              (click)="submit()"
+              [disabled]="!canSubmit"
+            >
+              <ion-icon name="send-outline" slot="start"></ion-icon>
+              Submit
+            </ion-button>
+          </div>
+
+          <div class="quick-contact">
+            <a class="mailto-link" [href]="mailtoHref" target="_blank" rel="noopener">
+              Or contact directly: {{ toEmail }}
+            </a>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-content>
+</ng-container>

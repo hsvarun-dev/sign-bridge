@@ -1,0 +1,36 @@
+.custom-tab-bar {
+  --background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  min-height: 70px;
+  padding: 8px 0;
+}
+
+.tab-btn {
+  --color: rgba(255, 255, 255, 0.75);
+  --color-selected: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tab-icon {
+    font-size: 24px;
+  }
+
+  .tab-label {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 4px;
+    color: inherit;
+  }
+}

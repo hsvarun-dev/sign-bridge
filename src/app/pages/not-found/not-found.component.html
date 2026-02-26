@@ -1,0 +1,16 @@
+<ion-content [fullscreen]="true" class="not-found">
+  <div class="nf-wrap">
+    <div class="nf-card">
+      <div class="nf-code">404</div>
+
+      <h1 class="nf-title">{{ '404.title' | transloco }}</h1>
+
+      <p class="nf-text">{{ '404.doesNotExist' | transloco }}</p>
+      <p class="nf-text nf-muted">{{ '404.errorLogged' | transloco }}</p>
+
+      <ion-button class="nf-btn" routerLink="/translate">
+        {{ '404.goHome' | transloco }}
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

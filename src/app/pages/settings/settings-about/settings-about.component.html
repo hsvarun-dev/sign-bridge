@@ -1,0 +1,194 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [text]="'settings.title' | transloco"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ 'About' | transloco }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="settings-about-page">
+  <div class="page-container">
+
+    <!-- PROJECT OVERVIEW SECTION -->
+    <section class="overview-section">
+      <h2 class="section-title">Sign Language Translation Platform</h2>
+      
+      <div class="overview-card">
+        <h3 class="card-title">What We Do</h3>
+        <p>
+          This is a modern Angular-based web application designed to bridge communication gaps between sign language and spoken languages. 
+          The platform enables users to translate text and audio input into sign language visuals (using FSW notation and pose rendering), 
+          supporting multiple spoken languages and signed languages globally.
+        </p>
+        <p>
+          Built with Ionic Framework for cross-platform compatibility and NGXS for state management, the application prioritizes accessibility, 
+          user experience, and seamless translation workflows.
+        </p>
+      </div>
+    </section>
+
+    <!-- CORE PURPOSE SECTION -->
+    <section class="purpose-section">
+      <h3 class="section-title">Our Mission</h3>
+      <div class="overview-card">
+        <p>
+          The application facilitates bidirectional translation between spoken/written languages and sign language, making communication 
+          more inclusive for deaf and hard-of-hearing communities. Users can input text or speech, select source and target languages, 
+          and receive visual sign language output rendered through specialized pose viewer components.
+        </p>
+      </div>
+    </section>
+
+    <!-- KEY FEATURES SECTION -->
+    <section class="features-section">
+      <h3 class="section-title">Key Features</h3>
+      <div class="features-grid">
+        <div class="feature-item">
+          <ion-icon name="globe-outline"></ion-icon>
+          <h4>Multi-language Support</h4>
+          <p>Detection and selection of 40+ spoken and signed languages</p>
+        </div>
+        <div class="feature-item">
+          <ion-icon name="mic-outline"></ion-icon>
+          <h4>Speech-to-Text</h4>
+          <p>Real-time speech capture and conversion</p>
+        </div>
+        <div class="feature-item">
+          <ion-icon name="flash-outline"></ion-icon>
+          <h4>Auto Detection</h4>
+          <p>Intelligent language detection for instant processing</p>
+        </div>
+        <div class="feature-item">
+          <ion-icon name="play-outline"></ion-icon>
+          <h4>Pose Rendering</h4>
+          <p>Advanced FSW notation with interactive visualization</p>
+        </div>
+        <div class="feature-item">
+          <ion-icon name="phone-portrait-outline"></ion-icon>
+          <h4>Responsive Design</h4>
+          <p>Optimized for mobile, tablet, and desktop</p>
+        </div>
+        <div class="feature-item">
+          <ion-icon name="moon-outline"></ion-icon>
+          <h4>Dark Mode</h4>
+          <p>Full dark mode theming for comfortable usage</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL STACK SECTION -->
+    <section class="tech-stack-section">
+      <h3 class="section-title">Technology Stack</h3>
+      <div class="tech-grid">
+        <div class="tech-item">
+          <div class="tech-icon angular"></div>
+          <h4>Angular 17+</h4>
+          <p>Modern frontend framework with standalone components</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon ionic"></div>
+          <h4>Ionic Framework</h4>
+          <p>Cross-platform UI framework for web and mobile</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon ngxs"></div>
+          <h4>NGXS State</h4>
+          <p>Predictable state management and debugging</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon scss"></div>
+          <h4>SCSS Styling</h4>
+          <p>CSS variables and breakpoint-based responsive design</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon i18n"></div>
+          <h4>Transloco i18n</h4>
+          <p>Multi-language UI support and dynamic switching</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon rxjs"></div>
+          <h4>RxJS</h4>
+          <p>Reactive programming for asynchronous operations</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROS & ADVANTAGES SECTION -->
+    <section class="pros-section">
+      <h3 class="section-title">Why Choose This Platform</h3>
+      <div class="pros-list">
+        <div class="pro-item">
+          <div class="pro-number">1</div>
+          <div class="pro-content">
+            <h4>Inclusivity & Accessibility</h4>
+            <p>Bridges communication gap for deaf/hard-of-hearing communities. High-contrast UI and keyboard navigation ensure usability for all users.</p>
+          </div>
+        </div>
+        <div class="pro-item">
+          <div class="pro-number">2</div>
+          <div class="pro-content">
+            <h4>Modern Technology</h4>
+            <p>Built on Angular 17, Ionic Framework, and NGXS for lightweight, fast, and maintainable code.</p>
+          </div>
+        </div>
+        <div class="pro-item">
+          <div class="pro-number">3</div>
+          <div class="pro-content">
+            <h4>Exceptional UX</h4>
+            <p>Smooth animations, real-time language detection, modern gradient design, and dark mode support.</p>
+          </div>
+        </div>
+        <div class="pro-item">
+          <div class="pro-number">4</div>
+          <div class="pro-content">
+            <h4>Performance & Scalability</h4>
+            <p>Debouncing, lazy loading, and modular architecture for optimal performance across all devices.</p>
+          </div>
+        </div>
+        <div class="pro-item">
+          <div class="pro-number">5</div>
+          <div class="pro-content">
+            <h4>Developer Friendly</h4>
+            <p>Well-organized codebase, TypeScript strict mode, and NGXS DevTools for easy debugging.</p>
+          </div>
+        </div>
+        <div class="pro-item">
+          <div class="pro-number">6</div>
+          <div class="pro-content">
+            <h4>Easy Maintenance</h4>
+            <p>Component reusability, SCSS variables, and centralized translations reduce technical debt.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT SECTION -->
+    <section class="impact-section">
+      <h3 class="section-title">Real-World Impact</h3>
+      <div class="overview-card impact-card">
+        <ul class="impact-list">
+          <li>✓ Empowers deaf communities with accessible technology</li>
+          <li>✓ Reduces miscommunication in healthcare, education, and government</li>
+          <li>✓ Promotes inclusive society and equal opportunity</li>
+          <li>✓ Supports 40+ languages for global reach</li>
+          <li>✓ Available on web, iOS, and Android platforms</li>
+          <li>✓ Open-source potential for community contributions</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <section class="footer-section">
+      <p class="footer-text">
+        This sign language translation application represents a commitment to digital inclusion and accessibility. 
+        By combining modern web technologies with a user-centric design philosophy, the platform delivers a powerful tool 
+        for bridging communication gaps.
+      </p>
+      <p class="footer-highlight">
+        Making communication accessible to everyone, regardless of hearing ability.
+      </p>
+    </section>
+
+  </div>
+</ion-content>

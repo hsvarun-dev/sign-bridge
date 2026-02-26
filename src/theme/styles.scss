@@ -1,0 +1,112 @@
+@forward './material.scss';
+@forward 'fonts/roboto.css';
+
+@forward './ionic';
+@forward './ionic-variables';
+
+.container {
+  width: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-md {
+  // Lighten shadow from material header
+  box-shadow:
+    0 1px 0px -1px rgba(0, 0, 0, 0.2),
+    0 -1px 8px 0 rgba(0, 0, 0, 0.14),
+    0 1px 2px 0 rgba(0, 0, 0, 0.12);
+}
+
+body {
+  --mdc-typography-button-letter-spacing: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  /* PAGE BACKGROUND */
+  background-color: white;
+
+  --app-divider-color: rgba(0, 0, 0, 0.12);
+  --app-tinted-background-color: #fafafa;
+
+  /* REMOVE DARK MODE OVERRIDE */
+  @media (prefers-color-scheme: dark) {
+    background-color: white !important;
+
+    --app-divider-color: rgba(0, 0, 0, 0.12);
+    --app-tinted-background-color: #fafafa;
+  }
+
+  &.embed {
+    ion-header,
+    ion-tab-bar,
+    #input-mode-group,
+    app-send-feedback {
+      display: none !important;
+    }
+  }
+}
+
+.actions-row {
+  position: absolute;
+  margin: 14px;
+  bottom: 0;
+  right: 0;
+  text-align: end;
+  width: calc(100% - 2 * 14px);
+}
+
+/* ===============================
+   FORCE TOP HEADER BLACK
+   =============================== */
+
+ion-header,
+ion-toolbar {
+  --background: #000000 !important;
+  background: #000000 !important;
+  --color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Sign Bridge title */
+ion-title {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+/* Keep button text normal case */
+ion-header ion-button {
+  text-transform: none;
+}
+/* ===============================
+   TRANSLATE TYPING AREA (WHITE)
+   =============================== */
+
+/* Ionic textarea background */
+ion-textarea,
+ion-textarea textarea {
+  --background: #ffffff !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+
+/* Plain textarea fallback */
+textarea {
+  background: #ffffff !important;
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+/* ===============================
+   LANGUAGE SWAP ICON COLOR
+   =============================== */
+
+/* Make all icons in the translate header white */
+ion-header ion-icon {
+  color: #ffffff !important;
+}
+
+/* Extra-safe: specific to swap icon button */
+ion-button ion-icon {
+  color: #ffffff !important;
+}
